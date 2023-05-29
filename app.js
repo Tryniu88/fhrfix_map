@@ -25,18 +25,23 @@ function addMarker(e) {
 
   var line = L.polyline(tab).addTo(map);
 
-  var distance = szkolaLatLng.distanceTo(markerLatLng) / 1000; // konwersja na kilometry
+  var distance = szkolaLatLng.distanceTo(markerLatLng) / 1000; // Conwertion to kilometers
   distance = distance.toFixed(2); // zaokrąglenie do dwóch miejsc po przecinku
 
   marker.bindPopup("Distance: " + distance + " Kilometers").openPopup();
 }
 
+var tabwoje = []
+
 for (let i = 0; i <= woje.features.length - 1; i++) {
   var wojew = L.geoJSON(woje.features[i],{color:'blue'}).addTo(map);
+
+
 
   wojew.on("click", showName)
   wojew.on("mouseover", setColor)
   wojew.on("mouseout", setColorPrev)
+  tabwoje.push(woje.features[i].properties.nazwa)
 }
 function showName(e){
   console.log(e.layer.feature.properties.nazwa)
@@ -57,4 +62,7 @@ function setColorPrev(e){
   console.log(e)
 }
 
-
+console.log(tabwoje)
+function los(){
+  
+}
