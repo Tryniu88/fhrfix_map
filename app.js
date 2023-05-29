@@ -34,4 +34,10 @@ function addMarker(e) {
 
 for (let i = 0; i <= woje.features.length - 1; i++) {
   L.geoJSON(woje.features[i]).addTo(map);
+
+  wojew.on("click", showName)
+  wojew.on("mouseover", setColor)
+}
+function showName(e){
+  console.log(e.layer.features.properties.nazwa)
 }
