@@ -66,6 +66,14 @@ console.log(tabwoje)
 
 function randomWoje(){
 var index = tabwoje[Math.floor(Math.random()*tabwoje.length)]
-var item = tablciaWoje[index]
-document.getElementById("wylosowanie").innerHTML = item
+var item = tabwoje[index]
+
+
+if(tabwoje.length > 0 ){
+  document.getElementById("wylosowanie").innerHTML = item
+}
+else{
+  document.getElementById("wylosowanie").innerHTML = "Wylosowane wszystkie"
+}
+tabwoje.splice(index, 1)
 }
