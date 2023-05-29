@@ -4,12 +4,11 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
   attribution:
     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-}).add
-To(map);
+}).addTo(map);
 
 var szkola = L.marker([52.18621387347515, 21.573400045855074])
   .addTo(map)
-  .bindPopup("SZKOŁA");
+  .bindPopup("Home the place where I can go");
 
 map.on("click", addMarker);
 
@@ -29,15 +28,33 @@ function addMarker(e) {
   var distance = szkolaLatLng.distanceTo(markerLatLng) / 1000; // konwersja na kilometry
   distance = distance.toFixed(2); // zaokrąglenie do dwóch miejsc po przecinku
 
-  marker.bindPopup("Odległość: " + distance + " kilometrów").openPopup();
+  marker.bindPopup("Distance: " + distance + " Kilometers").openPopup();
 }
 
 for (let i = 0; i <= woje.features.length - 1; i++) {
-  L.geoJSON(woje.features[i]).addTo(map);
+  var wojew = L.geoJSON(woje.features[i],{color:'blue'}).addTo(map);
 
   wojew.on("click", showName)
   wojew.on("mouseover", setColor)
+  wojew.on("mouseout", setColorPrev)
 }
 function showName(e){
-  console.log(e.layer.features.properties.nazwa)
+  console.log(e.layer.feature.properties.nazwa)
 }
+//Utworzenie nadaje color całej siatce (geoJSON).
+function setColor(e){
+//"this" odwołuje sie do całej funkcji
+  this.setStyle({
+    color:'red'
+  })
+  console.log(e)
+}
+
+function setColorPrev(e){
+  this.setStyle({
+    color:'blue'
+  })
+  console.log(e)
+}
+
+
