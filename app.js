@@ -32,9 +32,12 @@ function addMarker(e) {
 }
 
 var tabwoje = []
+var warstwy = []
 
 for (let i = 0; i <= woje.features.length - 1; i++) {
   var wojew = L.geoJSON(woje.features[i],{color:'blue'}).addTo(map);
+  wojew.nazwa = woje.features[i].properties.nazwa
+  warstwy.push(wojew)
 
 
 
@@ -70,12 +73,22 @@ var item = tabwoje[index]
 
 console.log(item)
 
+wylosowanyKolor(item)
+
 if(tabwoje.length > 0 ){
   document.getElementById("wylosowanie").innerHTML = item
   
 }
 else{
-  document.getElementById("wylosowanie").innerHTML = "Wylosowane wszystkie"
+  document.getElementById("wylosowanie").innerHTML = "ROBLOX SEX"
 }
 tabwoje.splice(index, 1)
+}
+
+function wylosowanyKolor(nazwa){
+  for(let i=0; i <= warstwy.length-1;i++){
+    if(nazwa == warstwy[i].nazwa){
+      warstwy[i].setStyle({color:'red'})
+    }
+  }
 }
