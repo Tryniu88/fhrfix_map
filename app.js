@@ -80,7 +80,7 @@ if(tabwoje.length > 0 ){
   
 }
 else{
-  document.getElementById("wylosowanie").innerHTML = "ROBLOX SEX"
+  document.getElementById("wylosowanie").innerHTML = "Wszystkie województwa zostały wylosowane."
 }
 tabwoje.splice(index, 1)
 }
