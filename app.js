@@ -57,7 +57,7 @@ function setColor(e){
   })
   console.log(e)
 }
-
+a
 function setColorPrev(e){
   this.setStyle({
     color:'blue'
@@ -80,7 +80,7 @@ if(tabwoje.length > 0 ){
   
 }
 else{
-  document.getElementById("wylosowanie").innerHTML = "Wszystkie województwa zostały wylosowane."
+  document.getElementById("wylosowanie").innerHTML = "Wszystkie województwa zostały wylosowane"
 }
 tabwoje.splice(index, 1)
 }
