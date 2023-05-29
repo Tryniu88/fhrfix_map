@@ -25,8 +25,8 @@ function addMarker(e) {
 
   var line = L.polyline(tab).addTo(map);
 
-  var distance = szkolaLatLng.distanceTo(markerLatLng) / 1000; // Conwertion to kilometers
-  distance = distance.toFixed(2); // zaokrąglenie do dwóch miejsc po przecinku
+  var distance = szkolaLatLng.distanceTo(markerLatLng) / 1000; // Conwertion to kilometers.
+  distance = distance.toFixed(2); // Rounded to two decimal places.
 
   marker.bindPopup("Distance: " + distance + " Kilometers").openPopup();
 }
@@ -63,6 +63,9 @@ function setColorPrev(e){
 }
 
 console.log(tabwoje)
-function los(){
-  
+
+function randomWoje(){
+var index = tabwoje[Math.floor(Math.random()*tabwoje.length)]
+var item = tablciaWoje[index]
+document.getElementById("wylosowanie").innerHTML = item
 }
