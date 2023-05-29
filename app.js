@@ -65,12 +65,14 @@ function setColorPrev(e){
 console.log(tabwoje)
 
 function randomWoje(){
-var index = tabwoje[Math.floor(Math.random()*tabwoje.length)]
+var index = Math.floor(Math.random()*tabwoje.length)
 var item = tabwoje[index]
 
+console.log(item)
 
 if(tabwoje.length > 0 ){
   document.getElementById("wylosowanie").innerHTML = item
+  
 }
 else{
   document.getElementById("wylosowanie").innerHTML = "Wylosowane wszystkie"
